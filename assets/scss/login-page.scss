@@ -1,0 +1,144 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.login-page-tXe {
+  box-sizing: border-box;
+  padding: 21.5rem 46.2rem 21.6rem 46.2rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #009240;
+
+  .rectangle-3-QF6 {
+    width: 49.8rem;
+    height: 64.9rem;
+    object-fit: cover;
+    vertical-align: top;
+    flex-shrink: 0;
+  }
+  .logi-form-kJx {
+    height: 64.9rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 49.8rem;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    padding: 5.5rem 7.5rem 13.7rem 7.5rem;
+    align-items: center;
+
+    .image-1-TjA {
+      object-fit: cover;
+      vertical-align: top;
+      flex-shrink: 0;
+      margin-bottom: 3.6rem;
+      width: 10.6rem;
+      height: 10.6rem;
+    }
+    .selamat-datang-B9N {
+      display: flex;
+      color: #000000;
+      flex-shrink: 0;
+      margin-bottom: 4.5rem;
+      font-size: 2.7rem;
+      font-weight: 300;
+      line-height: 1.1725;
+      font-family: Roboto, 'Source Sans Pro';
+      white-space: nowrap;
+    }
+    .form-email-gM2 {
+      box-sizing: border-box;
+      padding: 1.95rem 2.5rem;
+      width: 100%;
+      border: solid 0.1rem #919191;
+      background-color: #ffffff;
+      margin-bottom: 2.2rem;
+      display: flex;
+      font-weight: 300;
+      border-radius: 1rem;
+      flex-shrink: 0;
+      line-height: 1.1725;
+      white-space: nowrap;
+      font-size: 1.3rem;
+      color: #919191;
+      font-family: Roboto, 'Source Sans Pro';
+    }
+    .form-password-9VW {
+      padding: 1.95rem 2.5rem;
+      font-weight: 300;
+      font-family: Roboto, 'Source Sans Pro';
+      white-space: nowrap;
+      display: flex;
+      font-size: 1.3rem;
+      line-height: 1.1725;
+      background-color: #ffffff;
+      flex-shrink: 0;
+      margin-bottom: 1.65rem;
+      color: #919191;
+      border: solid 0.1rem #919191;
+      box-sizing: border-box;
+      width: 100%;
+      border-radius: 1rem;
+    }
+    .remember-me-AQc {
+      display: flex;
+      align-items: center;
+      border-radius: 0.3rem;
+      flex-shrink: 0;
+      margin: 0rem 26.8rem 1.85rem 0.1rem;
+      width: calc(100% - 26.9rem);
+
+      .rectangle-8-s48 {
+        width: 1.3rem;
+        height: 1.3rem;
+        border: solid 0.05rem #919191;
+        box-sizing: border-box;
+        border-radius: 0.3rem;
+        flex-shrink: 0;
+        margin-right: 0.6rem;
+      }
+      .ingat-saya-PoA {
+        display: flex;
+        font-size: 1.3rem;
+        font-weight: 300;
+        line-height: 1.1725;
+        color: #919191;
+        font-family: Roboto, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+    .login-button-W76 {
+      white-space: nowrap;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 400;
+      font-family: Roboto, 'Source Sans Pro';
+      align-items: center;
+      background-color: #009240;
+      display: flex;
+      font-size: 1.3rem;
+      color: #ffffff;
+      border-radius: 1rem;
+      width: 100%;
+      height: 5.5rem;
+      cursor: pointer;
+      line-height: 1.1725;
+    }
+  }
+}
