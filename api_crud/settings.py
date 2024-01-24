@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     # 3rd party
     'rest_framework',
     'django_filters',
-    # 'corsheaders',
 ]
 
 SITE_ID = 5
@@ -64,7 +63,7 @@ ROOT_URLCONF = 'api_crud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['frontend'],
+        'DIRS': [''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
