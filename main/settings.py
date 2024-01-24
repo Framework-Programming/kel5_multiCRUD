@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Own apps
-    'authentication',
-    'movies',
+    'multiuser',
 
     # 3rd party
     'rest_framework',
@@ -58,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'api_crud.urls'
+ROOT_URLCONF = 'web.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'api_crud.wsgi.application'
+WSGI_APPLICATION = 'web.wsgi.application'
 
 
 # Database
