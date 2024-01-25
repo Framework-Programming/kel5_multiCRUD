@@ -205,7 +205,7 @@
         </div>
 
         <!-- Modal Create -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -220,26 +220,18 @@
                       <label for="userEmail">Email</label>
                       <input class="form-control" type="email" id="userEmail" name="userEmail" required><br></br>
                     </div>
-                  </form>
-                  <form id="add">
                     <div class="form-group">
                       <label for="userNama">Name</label>
                       <input class="form-control" type="text" id="userNama" name="userNama" required><br></br>
                     </div>
-                  </form>
-                  <form id="add">
                     <div class="form-group">
                       <label for="username">Username</label>
                       <input class="form-control" type="text" id="Username" name="username" required><br></br>
                     </div>
-                  </form>
-                  <form id="add">
                     <div class="form-group">
                       <label for="password">Password</label>
                       <input class="form-control" type="password" id="password" name="password" required><br></br>
                     </div>
-                  </form>
-                  <form id="loginForm">
                     <div class="form-group">
                       <label for="itemDescription">Role</label>
                       <div style="text-align: right;;">
@@ -249,8 +241,6 @@
                         </select>
                       </div>
                     </div>
-                  </form>
-                  <form id="loginForm">
                     <div class="form-group">
                       <label for="userFoto">Foto</label>
                       <input class="form-control" type="file" id="userFoto" name="userFoto" required><br></br>
@@ -259,11 +249,61 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" form="addUserForm">Save changes</button>
+                  <button type="button" class="btn btn-primary" form="add">Save changes</button>
                 </div>
               </div>
             </div>
-          </div>
+        </div>
+
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="update">
+                    <div class="form-group">
+                      <label for="userEmail">Email</label>
+                      <input class="form-control" type="email" id="userEmail" name="userEmail" required><br></br>
+                    </div>
+                    <div class="form-group">
+                      <label for="userNama">Name</label>
+                      <input class="form-control" type="text" id="userNama" name="userNama" required><br></br>
+                    </div>
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input class="form-control" type="text" id="Username" name="username" required><br></br>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input class="form-control" type="password" id="password" name="password" required><br></br>
+                    </div>
+                    <div class="form-group">
+                      <label for="itemDescription">Role</label>
+                      <div style="text-align: right;;">
+                        <select name="field" id="id_field">
+                            <option value="superuser">Super User</option>
+                            <option value="contentwriter">Content Writer</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="userFoto">Foto</label>
+                      <input class="form-control" type="file" id="userFoto" name="userFoto" required><br></br>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" form="update">Save changes</button>
+                </div>
+              </div>
+            </div>
+        </div>
 
     </main>
 

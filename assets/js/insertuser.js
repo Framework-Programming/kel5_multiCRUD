@@ -1,22 +1,27 @@
-document.getElementById('addUserForm').addEventListener('submit', function(event){
+document.getElementById('add').addEventListener('submit', function(event){
     event.preventDefault();
 
     const userEmail = document.getElementById('userEmail').value;
     const userNama = document.getElementById('userNama').value;
     const Username = document.getElementById('Username').value;
-    const nameItem = document.getElementById('nameItem').value;
-    const descriptionItem = document.getElementById('descriptionItem').value;
+    const userpassword = document.getElementById('userpassword').value;
+    const userRole = document.getElementById('userRole').value;
+    const userFoto = document.getElementById('userFoto').value;
     const token = localStorage.getItem('accessToken');
     
-    fetch('http://127.0.0.1:8000/apia/item/', {
+    fetch('', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            name : nameItem,
-            description  : descriptionItem
+            email : userEmail,
+            name : userNama,
+            username : Username,
+            password : userpassword,
+            role : userRole,
+            foto  : userFoto,
         })
     })
     .then(response => {
