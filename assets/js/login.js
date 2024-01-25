@@ -21,7 +21,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event){
             localStorage.setItem('accessToken', data.access);
             messageDiv.textContent = 'Login successful!';
             messageDiv.style.color = 'green';
-            window.location.href = '../assets/m_admin.html'; // Redirect after success login
+            window.location.href = 'C:\Users\F124N\Downloads\Compressed\kel5_multiCRUD\assets\m_admin.html'; // Redirect after success login
         }
     })
     .catch(error => {
