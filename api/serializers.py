@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from apps.userman.models import Item
+from apps.userman.models import *
 
 class ItemSerializer(ModelSerializer):
     class Meta:
-        model = Item
-        fields = ['id','name','description']
+        model = User
+        fields = ['id_pengguna','nama_pengguna','password_pengguna']

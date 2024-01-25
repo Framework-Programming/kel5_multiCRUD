@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Item(models.Model):
+class User(models.Model):
     id_pengguna = models.CharField(max_length=11)
     nama_pengguna = models.CharField(max_length=50)
     email_pengguna = models.CharField(max_length=50)
