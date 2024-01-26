@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home | MUI BATU</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../assets/css/style_galeri.css">
+</head>
+
+<body style="height: 100vh;">
+    <!--Main Navigation-->
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="index.html"><img src="../assets/image/logo_MUI.png" alt="..."> MUI
+                    BATU<span>.</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="../user/index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto " href="#portfolio">Berita</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Fatwa & Tausiyah</a></li>
+                    <li><a class="nav-link scrollto active" href="#">Gallery</a></li>
+                    <li><a class="nav-link scrollto" href="./user-konsultasi.html">Konsultasi</a></li>
+                    <li><a class="nav-link scrollto " href="./sejarah_user.html">Sejarah</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <!--galeri-->
+    <section class="pt-3">
+        <div class="container mt-4">
+            <div class="section-header">
+                <div class="section-divider">
+                    <div class="divider-line"></div>
+                    <div class="section-subtitle" style="color: green;">GALERI MUI</div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <h2 class="section-title" style="font-weight: bold; margin-left: 33px;">Program Kerja MUI</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add an id to the card row container for easier manipulation -->
+        <!-- <div class="custom-card-row" id="galeriCardRow"></div> -->
+        <div class="container">
+            <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                </div>
+                <button class="carousel-control-prev" style="width: 3% !important;" type="button"
+                    data-bs-target="#cardCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" style="width: 3% !important;" type="button"
+                    data-bs-target="#cardCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="galleryModalLabel">Gallery Preview</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <center>
+                        <div class="modal-body">
+                            <img id="modalImage" class="img-fluid" alt="Gallery Preview">
+                            <h5 class="pt-3" id="modalDeskripsi"></h5>
+                        </div>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                fetchGaleriData();
+            });
+
+            function fetchGaleriData() {
+                // Fetch data from the Galeri API (adjust the URL based on your backend API)
+                fetch('http://127.0.0.1:8000/api/v1/galeri/')
+                    .then(response => response.json())
+                    .then(data => displayGaleriData(data))
+                    .catch(error => console.error('Error fetching Galeri data:', error));
+            }
+
+            function displayGaleriData(galeriData) {
+                const cardCarousel = document.querySelector('#cardCarousel .carousel-inner');
+                cardCarousel.innerHTML = '';
+
+                let currentRow = null;
+                let currentCarouselItem = null;
+                let currentIndex = 0;
+
+                galeriData.results.forEach((item, index) => {
+                    // Start a new row every 4 items
+                    if (currentIndex % 3 === 0) {
+                        currentRow = document.createElement('div');
+                        currentRow.classList.add('row');
+
+                        currentCarouselItem = document.createElement('div');
+                        currentCarouselItem.classList.add('carousel-item');
+                        if (currentIndex === 0) {
+                            currentCarouselItem.classList.add('active');
+                        }
+                        currentCarouselItem.appendChild(currentRow);
+                        cardCarousel.appendChild(currentCarouselItem);
+                    }
+
+                    // Create a card element
+                    const cardElement = document.createElement('div');
+                    cardElement.classList.add('card', 'col-md-3');
+                    cardElement.style.marginBottom = '20px'; // Add bottom margin
+                    cardElement.innerHTML = `
+                <div class="card-body" style="padding: 20px; ">
+                    <a href="#"><img class="card-img-top" src="${item.foto_galeri}" alt="Card image cap" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="${item.foto_galeri}" data-deskripsi="${item.deskripsi_galeri}" ></a>
+                    <div class="section-divider" style="margin-right: 31px;">
+                        <div class="divider-line"></div>
+                        <div class="section-subtitle" style="color: green;">${item.deskripsi_galeri}</div>
+                    </div>
+                </div>
+            `;
+
+                    // Append the card to the current row
+                    currentRow.appendChild(cardElement);
+
+                    currentIndex++;
+                });
+
+                const modalImage = document.getElementById('modalImage');
+                const modalDeskripsi = document.getElementById('modalDeskripsi');
+
+                cardCarousel.addEventListener('click', function (event) {
+                    const targetImage = event.target.getAttribute('data-image');
+                    const targetDeskripsi = event.target.getAttribute('data-deskripsi');
+
+                    if (targetImage) {
+                        modalImage.src = targetImage;
+                        modalDeskripsi.textContent = targetDeskripsi;
+                    }
+                });
+            }
+
+
+        </script>
+
+    </section>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center"> <!-- Adjust the width (e.g., col-md-6) as needed -->
+            <!-- <button type="button" class="btn btn-success bg-white text-success shadow-sm my-5">Program Kerja
+                Lainnya</button> -->
+
+        </div>
+    </div>
+
+    <footer class="pt-3 footer-sticky">
+        <div class="container">
+            <div class="row mt-4 mb-4">
+                <div class="col-12">
+                    <h4>MUI BATU</h4>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12">
+                    <i class="fab fa-facebook-f mx-2 footer_icon"></i>
+                    <i class="fab fa-twitter mx-2 footer_icon"></i>
+                    <i class="fab fa-instagram mx-2 footer_icon"></i>
+                    <i class="fab fa-linkedin-in mx-2 footer_icon"></i>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4" style="text-align: left;">
+                    <a href="" class="footer_title">
+                        <h5>SEJARAH</h5>
+                    </a>
+                    <a href="" class="footer_title">
+                        Sekilas MUI
+                    </a>
+                    <br>
+                    <a href="" class="footer_title">
+                        Berdirinya MUI
+                    </a>
+                    <br>
+                    <a href="" class="footer_title">
+                        MUI BATU
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="" class="footer_title">
+                        <h5>FATWA</h5>
+                    </a>
+                    <a href="" class="footer_title">
+                        FATWA MUI
+                    </a>
+                    <br>
+                    <a href="" class="footer_title">
+                        FATWA DSN MUI
+                    </a>
+                </div>
+                <div class="col-4" style="text-align: right;">
+                    <a href="" class="footer_title">
+                        <h5>TENTANG KAMI</h5>
+                    </a>
+
+                    <p>021-3917853</p>
+                    <p>Jl. Proklamasi 51, <br> Menteng, Jakarta Pusat</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/c055542fa3.js" crossorigin="anonymous"></script>
+    <script src="../assets/js/scripts_user.js"></script>
+</body>
+</html>

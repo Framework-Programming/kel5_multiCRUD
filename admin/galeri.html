@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Admin Page</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dropify.min.css">
+</head>
+
+<style>
+  .pagination {
+    justify-content: left;
+  }
+
+  .pagination .page-item .page-link {
+    color: white;
+    background-color: green;
+    border: none;
+  }
+
+  .pagination .page-item .page-link:hover {
+    color: black;
+    background-color: lightgreen;
+  }
+</style>
+
+<body>
+  <!--Main Navigation-->
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="d-lg-block sidebar collapse">
+      <div>
+        <h2 class="text-center text-white">MUI BATU</h2>
+      </div>
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a href="../admin/admin_home.html" class="list-group-item list-group-item-action py-2 ripple "
+            aria-current="true">
+            <i class="fas fa-home-alt fa-fw me-3"></i><span>Home</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
+            <i class="fas fa-user fa-fw me-3"></i><span>Pengguna</span>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-newspaper fa-fw me-3"></i><span>Berita</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-bullhorn fa-fw me-3"></i><span>Fatwa</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+            <i class="fas fa-camera fa-fw me-3"></i><span>Galeri</span>
+          </a>
+          <a href="../admin/sejarah.html" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-hourglass-half fa-fw me-3"></i><span>Sejarah</span></a>
+          <a href="../admin/admin_konsultasi.html" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-comment fa-fw me-3"></i><span>Konsultasi</span></a>
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-question fa-fw me-3"></i><span>Tentang</span></a>
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Right links -->
+        <ul class="navbar-nav ms-auto d-flex flex-row">
+          <!-- Avatar -->
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="40"
+                alt="" loading="lazy" />
+              Dewi Sinta
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="../admin/login.html">Log Out</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <main>
+    <div class="container pt-4">
+      <!-- <button type="button" class="btn btn-success">Tambah Data</button> -->
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Tambah Foto Galeri
+      </button>
+
+      <!-- <h1>Isinya taruh sini</h1> -->
+      <div class="row mt-4" id="galeri-item">
+
+      </div>
+      <div id="pagination"></div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Galeri</h5>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            <form id="addItemForm" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="foto_galeri">Foto Galeri</label>
+                <input type="file" class="form-control dropify" id="foto_galeri" name="foto_galeri">
+              </div>
+              <div class="form-group">
+                <label for="deskripsi_galeri">Deksripsi</label>
+                <textarea name="deskripsi" id="deskripsi_galeri" name="deskripsi_galeri"
+                  class="form-control "></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Galeri</h5>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button> -->
+          </div>
+          <div class="modal-body">
+            <form id="editItemForm" method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="foto_galeri">Foto Galeri</label>
+                <input type="file" class="form-control dropify" id="foto_galeri_edit" name="foto_galeri">
+                <div id="currentFotoGaleri"></div>
+              </div>
+              <div class="mb-3">
+                <label for="deskripsi_galeri" class="form-label">Deskripsi</label>
+                <!-- <input type="text" class="form-control" id="deskripsi_galeri_edit" name="deskripsi_galeri"> -->
+                <textarea class="form-control" id="deskripsi_galeri_edit" name="deskripsi_galeri"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateItem()">Update Data</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script> -->
+  <!-- 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Then load Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
+  <!-- Finally, load Bootstrap's JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+  <script src="https://kit.fontawesome.com/c055542fa3.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="../assets/js/dropify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Basic
+      $('.dropify').dropify();
+    });
+
+    function resetdata() {
+      $(".dropify-clear").trigger("click");
+      $('#deskripsi_galeri').val('');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetchItems();
+    });
+
+    let currentPage = 1;
+    const itemsPerPage = 8;
+
+    // function fetchItems() {
+    //   fetch('http://127.0.0.1:8000/api/v1/galeri/')
+    //     .then(response => response.json())
+    //     .then(data => displayitems(data))
+    //     .catch(error => console.error('Error', error));
+    // }
+    function fetchItems(page = 1) {
+      fetch(`http://127.0.0.1:8000/api/v1/galeri/?page=${page}&page_size=${itemsPerPage}`)
+        .then(response => response.json())
+        .then(data => displayitems(data))
+        .catch(error => console.error('Error', error));
+    }
+
+    function displayitems(data) {
+      const itemsContainer = document.getElementById('galeri-item');
+      itemsContainer.innerHTML = '';
+      data.results.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('col-sm-3');
+        itemElement.innerHTML = `
+            <div class="card mb-4">
+            <img class="card-img-top" src="${item.foto_galeri}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"> ${item.deskripsi_galeri} </p>
+                <a href="#" class="btn btn-warning" onclick="editItem(${item.id})"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="btn btn-danger" onclick="deleteItem(${item.id})"><i class="fa-solid fa-trash"></i></a>
+            </div>
+            <div>
+            `;
+        itemsContainer.appendChild(itemElement);
+      });
+
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = '';
+      const ul = document.createElement('ul');
+      ul.className = 'pagination';
+
+      if (currentPage > 1) {
+        const li = document.createElement('li');
+        li.className = 'page-item';
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.ariaLabel = 'Previous';
+        a.innerHTML = '<span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span>';
+        a.onclick = () => {
+          currentPage--;
+          fetchItems(currentPage);
+        };
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+
+      for (let i = 1; i <= Math.ceil(data.count / itemsPerPage); i++) {
+        const li = document.createElement('li');
+        li.className = 'page-item';
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.innerText = i;
+        a.onclick = () => {
+          currentPage = i;
+          fetchItems(currentPage);
+        };
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+
+      if (data.next !== null) {
+        const li = document.createElement('li');
+        li.className = 'page-item';
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.ariaLabel = 'Next';
+        a.innerHTML = '<span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span>';
+        a.onclick = () => {
+          currentPage++;
+          fetchItems(currentPage);
+        };
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+
+      paginationContainer.appendChild(ul);
+
+    }
+
+
+
+
+    document.getElementById('addItemForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData();
+      formData.append('foto_galeri', document.getElementById('foto_galeri').files[0]);
+      formData.append('deskripsi_galeri', document.getElementById('deskripsi_galeri').value);
+
+      fetch('http://127.0.0.1:8000/api/v1/galeri/', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong');
+          }
+        })
+        .then(data => {
+          console.log('Success: ', data);
+          $('#exampleModal').modal('hide');
+          fetchItems();
+          resetdata();
+          // displayitems(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+
+    });
+
+
+    // function deleteItem(itemId) {
+    //   const confirmDelete = confirm('Are you sure you want to delete this item?');
+
+
+    //   if (!confirmDelete) {
+    //     return; 
+    //   }
+    //   fetch(`http://127.0.0.1:8000/api/v1/galeri/${itemId}/`, {
+    //       method: 'DELETE',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     })
+    //     .then(response => {
+    //       if (response.ok) {
+
+    //         const itemElement = document.getElementById(`item-${itemId}`);
+    //         if (itemElement) {
+    //           itemElement.remove();
+    //         }
+
+    //         window.history.back();
+    //         fetchItems();
+    //         showAlert();
+    //       } else {
+    //         console.error('Failed to delete item');
+    //       }
+    //     })
+    //     .catch(error => {
+    //       console.error('Error during delete operation:', error);
+    //     });
+    // }
+
+    function deleteItem(itemId) {
+      swal({
+        title: "Apakah Anda Yakin?",
+        text: "Setelah dihapus, Anda tidak akan dapat memulihkan item ini!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            fetch(`http://127.0.0.1:8000/api/v1/galeri/${itemId}/`, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+              .then(response => {
+                if (response.ok) {
+                  const itemElement = document.getElementById(`item-${itemId}`);
+                  if (itemElement) {
+                    itemElement.remove();
+                  }
+                  swal("Poof! Your item has been deleted!", {
+                    icon: "success",
+                  });
+                  fetchItems();
+                } else {
+                  console.error('Failed to delete item');
+                }
+              })
+              .catch(error => {
+                console.error('Error during delete operation:', error);
+              });
+          } else {
+            swal({
+              title: "Your item is safe!",
+              icon: "success",
+            });
+          }
+        });
+    }
+
+    function initializeDropify() {
+      $('#foto_galeri_edit').dropify();
+    }
+
+
+    let currentFileName;
+
+    function editItem(itemId) {
+      currentEditItemId = itemId;
+      fetch(`http://127.0.0.1:8000/api/v1/galeri/${itemId}/`)
+        .then(response => response.json())
+        .then(item => {
+          currentFileName = item.foto_galeri.split('/').pop();
+          document.getElementById('currentFotoGaleri').innerText = `Current File: ${currentFileName}`;
+
+          var dropifyElement = document.querySelector('#foto_galeri_edit');
+          dropifyElement.setAttribute('data-default-file', item.foto_galeri);
+
+          var drEvent = $(dropifyElement).dropify();
+
+          drEvent = drEvent.data('dropify');
+          drEvent.resetPreview();
+          drEvent.clearElement();
+          drEvent.settings.defaultFile = item.foto_galeri;
+          drEvent.destroy();
+          drEvent.init();
+
+          document.getElementById('deskripsi_galeri_edit').value = item.deskripsi_galeri;
+          $('#editModal').modal('show');
+          // initializeDropify();
+        })
+        .catch(error => console.error('Error fetching item details:', error));
+    }
+
+    // Event listener for the form submission in the edit modal
+    document.getElementById('editItemForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      updateItem();
+    });
+
+
+    function updateItem() {
+      // Get the stored item ID for editing
+      const itemId = currentEditItemId;
+
+      // Check if itemId is available
+      if (!itemId) {
+        console.error('Item ID is missing.');
+        return;
+      }
+
+      const formData = new FormData(document.getElementById('editItemForm'));
+
+
+      const newFile = formData.get('foto_galeri');
+
+      const newFileName = newFile ? newFile.name : currentFileName;
+
+
+      if (newFileName == null || newFileName == '') {
+        formData.delete('foto_galeri');
+      }
+
+      fetch(`http://127.0.0.1:8000/api/v1/galeri/${itemId}/`, {
+        method: 'PATCH',
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+
+            $('#editModal').modal('hide');
+
+            fetchItems();
+          } else {
+            console.error('Failed to update item');
+          }
+        })
+        .catch(error => {
+          console.error('Error during update operation:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>

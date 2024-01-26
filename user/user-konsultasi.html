@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Konsultasi | MUI BATU</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style-user.css" />
+  <link rel="stylesheet" href="../assets/css/konsultasi-style.css" />
+</head>
+
+<body>
+  <!--Main Navigation-->
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo">
+        <a href="index.html"><img src="../assets/image/logo_MUI.png" alt="..." /> MUI
+          BATU<span>.</span></a>
+      </h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="../user/index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Berita</a></li>
+          <li>
+            <a class="nav-link scrollto" href="#services">Fatwa & Tausiyah</a>
+          </li>
+          <li><a class="nav-link scrollto" href="../user/galeri_user.html">Gallery</a></li>
+          <li>
+            <a class="nav-link scrollto active" href="#">Konsultasi</a>
+          </li>
+          <li><a class="nav-link scrollto" href="./sejarah_user.html">Sejarah</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main>
+    <section class="konsultasi-front">
+      <div class="container pt-4">
+        <div class="konsultasi-title" data-aos="fade-up">
+          <p>KONSULTASI BERSAMA MUI</p>
+          <h1>SELAMAT DATANG DI HALAMAN KONSULTASI</h1>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="pilih-konsultasi">
+          <div class="image-box" onclick="openMulaiModal()">
+            <div class="overlay">
+              <h2>Mulai Konsultasi Baru</h2>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FormKonsulModal">
+              <img class="pilihimg" src="../assets/image/mulaikonsul.JPG" alt="mulai" />
+            </button>
+          </div>
+          <div class="image-box" onclick="openLanjutModal()">
+            <div class="overlay">
+              <h2>Lanjutkan Konsultasi</h2>
+            </div>
+            <img class="pilihimg" src="../assets/image/lanjutkonsul.JPG" alt="lanjut" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal-konsul-section">
+      <!-- Modal -->
+      <div id="FormKonsulModal" class="modal">
+        <div class="modal-content">
+          <h2>Formulir Konsultasi</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeMulaiModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <hr />
+
+          <!-- Formulir Konsultasi -->
+          <form id="konsultasiForm" enctype='multipart/form-data'>
+            <label for="itemNama">Nama</label>
+            <input type="text" id="ItemNama" placeholder="Masukkan Nama" required />
+
+            <label for="noHP">No HP (Whatsapp)</label>
+            <input type="text" id="ItemWa" name="wa_konsultasi" placeholder="Masukkan No HP" required />
+
+            <label for="isiKonsultasi">Isi</label>
+            <textarea id="ItemKonsultasi" name="isi_konsultasi" placeholder="Tuliskan konsultasi di sini"
+              required></textarea>
+
+            <label for="berkas">Berkas</label>
+            <input type="file" id="ItemBerkasKonsultasi" name="berkas_konsultasi" onchange="showFileName()" />
+
+            <hr />
+            <div class="button-container">
+              <button type="button" class="close-modal-konsul" onclick="closeMulaiModal()">
+                Batal
+              </button>
+              <button type="submit" class="save-modal-konsul" form="konsultasiForm">
+                Simpan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="lanjutModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeLanjutModal()">&times;</span>
+          <h2>Form Konsultasi</h2>
+          <hr />
+
+
+          <!-- <label for="namaLanjut">Nama</label>
+              <input
+                type="text"
+                id="namaLanjut"
+                name="namaLanjut"
+                placeholder="Masukkan Nama"
+                required
+              /> -->
+
+          <label for="kodeKonsultasi">Kode Konsultasi</label>
+          <input type="text" id="nomor_konsultasi" name="nomor_konsultasi" placeholder="Masukkan Kode Konsultasi"
+            required />
+
+          <hr />
+          <div class="button-container">
+            <button type="button" class="close-modal-konsul" onclick="closeLanjutModal()">
+              Batal
+            </button>
+            <button class="save-modal-konsul" onclick="simpanLanjutKonsultasi()">
+              Simpan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section class="modal=jawaban-konsul-section">
+        <!-- Modal -->
+        <div id="JawabanKonsulModal" class="modal">
+          <div class="modal-content">
+            <h2>Jawaban Konsultasi</h2>
+            <!-- <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button> -->
+            <hr />
+
+            <!-- Formulir Konsultasi -->
+            <div class="form-group">
+              <label for="ItemNomorJawaban">Nomor</label>
+              <input type="text" class="form-control" id="ItemNomorJawaban" readonly />
+            </div>
+            <div class="form-group">
+              <label for="ItemNamaJawaban">Nama</label>
+              <input type="text" class="form-control" id="ItemNamaJawaban" readonly />
+            </div>
+            <div class="form-group">
+              <label for="ItemWaJawaban">WhatsApp</label>
+              <input type="text" class="form-control" id="ItemWaJawaban" readonly />
+            </div>
+            <div class="form-group">
+              <label for="ItemKonsultasiJawaban">Konsultasi</label>
+              <textarea class="form-control" id="ItemKonsultasiJawaban" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="ItemBerkasKonsultasiJawaban">Berkas Konsultasi</label>
+              <br />
+              <img id="ItemBerkasKonsultasiJawaban" class="img-fluid" alt="Berkas Konsultasi" />
+            </div>
+            <div class="form-group">
+              <label for="ItemJawaban">Jawaban</label>
+              <textarea type="text" class="form-control" id="ItemJawaban" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="ItemBerkasJawaban">Berkas Jawaban</label>
+              <br />
+              <img id="ItemBerkasJawaban" class="img-fluid" alt="Berkas jawab Konsultasi" />
+            </div>
+
+            <hr />
+            <div class="button-container">
+              <button type="button" class="close-modal-konsul" onclick="closeJawabanModal()">
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <footer class="pt-3 footer-sticky">
+    <div class="container">
+      <div class="row mt-4 mb-4">
+        <div class="col-12">
+          <h4>MUI BATU</h4>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-12">
+          <i class="fab fa-facebook-f mx-2 footer_icon"></i>
+          <i class="fab fa-twitter mx-2 footer_icon"></i>
+          <i class="fab fa-instagram mx-2 footer_icon"></i>
+          <i class="fab fa-linkedin-in mx-2 footer_icon"></i>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4" style="text-align: left">
+          <a href="" class="footer_title">
+            <h5>SEJARAH</h5>
+          </a>
+          <a href="" class="footer_title"> Sekilas MUI </a>
+          <br />
+          <a href="" class="footer_title"> Berdirinya MUI </a>
+          <br />
+          <a href="" class="footer_title"> MUI BATU </a>
+        </div>
+        <div class="col-4">
+          <a href="" class="footer_title">
+            <h5>FATWA</h5>
+          </a>
+          <a href="" class="footer_title"> FATWA MUI </a>
+          <br />
+          <a href="" class="footer_title"> FATWA DSN MUI </a>
+        </div>
+        <div class="col-4" style="text-align: right">
+          <a href="" class="footer_title">
+            <h5>TENTANG KAMI</h5>
+          </a>
+
+          <p>021-3917853</p>
+          <p>
+            Jl. Proklamasi 51, <br />
+            Menteng, Jakarta Pusat
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+  <script src="https://kit.fontawesome.com/c055542fa3.js" crossorigin="anonymous"></script>
+  <scripts src="../assets/js/scripts.js"></scripts>
+  <script src="../assets/js/mulai-konsultasi.js"></script>
+  <script src="../assets/js/lanjutkan-konsultasi.js"></script>
+  <script src="../assets/js/tambah-konsultasi.js"></script>
+</body>
+</html>

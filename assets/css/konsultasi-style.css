@@ -1,0 +1,253 @@
+.konsultasi-front {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+    
+  .konsultasi-title h1 {
+    font-size: 35px;
+    font-weight: 700;
+  }
+     
+  .konsultasi-title p {
+    margin-bottom: 0;
+    color: #09aa2c;
+    font-weight: 500;
+  }
+  
+  .konsultasi-title p::before {
+    content: "";
+    display: inline-block;
+    width: 40px; 
+    height: 2px; 
+    background-color: #09aa2c; 
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .konsultasi-title p {
+    display: inline-block; 
+    vertical-align: middle;
+  }
+  
+  
+  /*--------------------------------------------------------
+  ----------------- PILIH KONSULTASI -----------------------
+  --------------------------------------------------------*/
+  
+  .pilih-konsultasi {
+    margin: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .image-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+    
+  .image-box img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+  }
+    
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 161, 36, 0.7); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: 0.5s;
+  }
+    
+  .overlay h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 50px;
+    padding: 30px;
+  }
+    
+  .image-box:hover .overlay {
+    background-color: rgba(27, 92, 27, 0.7); 
+    cursor: pointer;
+    
+  }
+  
+  /*--------------------------------------------------------
+  ------------------------ MODAL --------------------------
+  --------------------------------------------------------*/
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  
+  .modal-content label {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .modal-content input {
+    padding: 6px 8px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .modal-content textarea {
+    height: 100px;
+    padding: 6px 8px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .close-modal-konsul {
+    background-color: white;
+    color: #888;
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+  
+  .close-modal-konsul:hover {
+    background-color: #888;
+    color: white;
+  }
+  
+  .save-modal-konsul {
+    background-color: #0d8b28;
+    color: white;
+    border: 1px solid #0c631f;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+  
+  .save-modal-konsul:hover {
+    background-color: #0c631f;
+  }
+  
+  /*--------------------------------------------------------
+  -------------------- DETAIL KONSULTASI --------------------
+  --------------------------------------------------------*/
+  
+  .kode-konsultasi {
+    margin: 20px 0;
+  }
+  
+  .kode-konsultasi h2 {
+    color: #0d8b28;
+    font-size: 25px;
+  }
+  
+  .kode-konsultasi p {
+    font-style: italic;
+    font-weight: 500;
+  }
+  
+  .isi-konsultasi {
+    margin-bottom: 40px;
+  }
+  
+  .isi-konsultasi .box{
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .isi-konsultasi .box h4{
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .isi-konsultasi .detail-isi {
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+  }
+  
+  .tambah-konsultasi {
+    text-align: center;
+    margin: 30px 0 40px 0;
+  }
+  
+  .tambah-konsultasi .button-tambah {
+    background-color: #009240;
+    color: white;
+    font-weight: 500;
+    border: 1px solid #0c7238;
+    border-radius: 5px;
+    padding: 8px 15px;
+    transition: 0.5s;
+  }
+  
+  .tambah-konsultasi .button-tambah:hover{
+    background-color: #0c7238;
+  }
+
+  
