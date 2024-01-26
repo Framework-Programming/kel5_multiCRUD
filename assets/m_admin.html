@@ -233,9 +233,9 @@
                       <input class="form-control" type="password" id="password" name="password" required><br></br>
                     </div>
                     <div class="form-group">
-                      <label for="itemDescription">Role</label>
+                      <label for="Role">Role</label>
                       <div style="text-align: right;;">
-                        <select name="field" id="id_field">
+                        <select name="Role" id="userRole">
                             <option value="superuser">Super User</option>
                             <option value="contentwriter">Content Writer</option>
                         </select>
@@ -254,7 +254,7 @@
               </div>
             </div>
         </div>
-
+        <!-- Modal Update -->
         <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -283,9 +283,9 @@
                       <input class="form-control" type="password" id="password" name="password" required><br></br>
                     </div>
                     <div class="form-group">
-                      <label for="itemDescription">Role</label>
+                      <label for="Role">Role</label>
                       <div style="text-align: right;;">
-                        <select name="field" id="id_field">
+                        <select name="Role" id="userRole">
                             <option value="superuser">Super User</option>
                             <option value="contentwriter">Content Writer</option>
                         </select>
@@ -304,6 +304,28 @@
               </div>
             </div>
         </div>
+        <!-- Modal Delete -->
+      <div class="modal fade" id="deleteItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Delete Item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Apakah anda yakin ingin menghapus ?
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger" form="deleteItem">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     </main>
 
