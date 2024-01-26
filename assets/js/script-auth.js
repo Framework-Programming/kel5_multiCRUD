@@ -15,7 +15,7 @@ function fetchItems(){
 }
 
 function displayItems(items) {
-    const itemsContainer = $("#datatable tbody");
+    const itemsContainer = $("#itemTable tbody");
   
     items.forEach((item) => {
       const row = $("<tr>").html(`
@@ -33,5 +33,5 @@ function displayItems(items) {
     });
   
     // Initialize DataTable
-    $("#datatable").DataTable();
+    $("#itemTable").DataTable();
 }
