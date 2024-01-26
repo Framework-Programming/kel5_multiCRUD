@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'berita',
     'homes',
     'galeri',
-    'auth',
+    'author',
 ]
 
 SITE_ID = 1
