@@ -30,7 +30,7 @@ class User(models.Model):
         default=PENULIS
     )
     status_pengguna = models.CharField(max_length=11)
-    foto_pengguna = models.ImageField(upload_to=user_photo)
+    foto_pengguna = models.ImageField(upload_to=user_photo, null=True, blank=True)
 
     def __str__(self):
         return self.id_pengguna, self.username_pengguna, self.password_pengguna
