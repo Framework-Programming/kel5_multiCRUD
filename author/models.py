@@ -24,11 +24,11 @@ class User(models.Model):
     email_pengguna = models.CharField(max_length=50)
     username_pengguna = models.CharField(max_length=50)
     password_pengguna = models.CharField(max_length=255)
-    # level_pengguna = models.CharField(
-    #     max_length=10,
-    #     choices=LEVEL_CHOICES,
-    #     default=PENULIS
-    # )
+    level_pengguna = models.CharField(
+        max_length=10,
+        choices=LEVEL_CHOICES,
+        default=PENULIS
+    )
     status_pengguna = models.CharField(max_length=11)
     foto_pengguna = models.ImageField(upload_to=user_photo)
 

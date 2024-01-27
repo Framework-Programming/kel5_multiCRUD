@@ -133,10 +133,14 @@
                                 <label for="">Password</label>
                                 <input type="password" class="form-control" id="" required>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="">Level</label>
-                                <input type="" class="form-control" id="" required>
-                            </div> -->
+                            <div class="form-group">
+                                <label for="">Level User</label>
+                                <select name="level_pengguna" id="">
+                                    {% for choice in User.LEVEL_CHOICES %}
+                                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="">Status</label>
                                 <input type="number" class="form-control" id="" required>
