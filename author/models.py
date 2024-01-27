@@ -26,14 +26,10 @@ class User(models.Model):
     password_pengguna = models.CharField(max_length=255)
     level_pengguna = models.CharField(
         max_length=10,
-        choices=LEVEL_CHOICES,
-        default=PENULIS
+        choices=LEVEL_CHOICES
     )
     status_pengguna = models.CharField(max_length=11)
     foto_pengguna = models.ImageField(upload_to=user_photo, null=True, blank=True)
-
-    def __str__(self):
-        return self.id_pengguna, self.username_pengguna, self.password_pengguna
 
     class Meta:
         ordering = ['-id']
