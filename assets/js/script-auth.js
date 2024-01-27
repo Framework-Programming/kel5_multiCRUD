@@ -19,10 +19,10 @@ function displayItems(items) {
   
     items.forEach((item) => {
       const row = $("<tr>").html(`
-          <td>${item.id_pengguna}</td>
-          <td>${item.email_pengguna}</td>
-          <td>${item.nama_pengguna}</td>
-          <td>${item.level_pengguna}</td>
+          <td>${item.id}</td>
+          <td>${item.email}</td>
+          <td>${item.nama}</td>
+          <td>${item.level}</td>
   
           <td>
             <button class="btn btn-primary edit-btn" data-id="${item.id}"><i class="fas fa-edit"></i>Edit</button>

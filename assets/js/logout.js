@@ -11,6 +11,7 @@ function logout() {
     
     if(token){
         removeToken();
+        window.location.href = '../admin/login.html';
         console.log('Logout berhasil !');
     }else{
         console.log('User belum login !');
